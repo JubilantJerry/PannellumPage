@@ -1,0 +1,161 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <title>
+      3D Photosphere Viewer
+    </title>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rev="made" href="http://www.arachnoid.com/">
+    <meta http-equiv="Content-language" content="en">
+    <meta name="author" content="Paul Lutus">
+    <meta name="owner" content="Paul Lutus">
+    <meta name="description" content="Select and view local photospheres.">
+    <meta name="group" content="ARACH/COMPUTERGRAPHICS">
+    <meta name="menuCat" content="Computer Graphics">
+    <meta name="keywords" content="graphics photosphere panorama viewer">
+    <meta name="rating" content="General">
+    <meta name="ROBOTS" content="ALL">
+    <meta name="GENERATOR" content="Arachnophilia 5.5">
+    <meta name="FORMATTER" content="Arachnophilia 5.5">
+    <link rel="stylesheet" type="text/css" href="3D%20Photosphere%20Viewer_files/default_article.css">
+    <!--<link rel="stylesheet" type="text/css" href="resources/styles.css"/> -->
+    <script type="text/javascript" src="3D%20Photosphere%20Viewer_files/dictionary_access.js"></script><script src="3D%20Photosphere%20Viewer_files/page-script.js"></script>
+    <script type="text/javascript" language="JavaScript" src="3D%20Photosphere%20Viewer_files/utilities.js"></script>
+    <link rel="stylesheet" href="3D%20Photosphere%20Viewer_files/pannellum.css">
+    <script type="text/javascript" src="3D%20Photosphere%20Viewer_files/pannellum.js"></script>
+    <script type="text/javascript" src="3D%20Photosphere%20Viewer_files/viewer.js"></script>
+    <style>
+#panorama {
+  width: 850px;
+  height: 480px;
+  background-color:#f0f0f0;
+}
+#label {
+  line-height:480px;
+  font-size:150%;
+}
+
+    </style>
+  </head>
+  
+  <!-- Allow drag & drop anywhere on the page -->
+  <body ondrop="viewer.drop(event)" ondragover="viewer.allowDrop(event)">
+    <!-- SiteIndexBegin -->
+    <!-- Menus created by SiteGen, http://www.arachnoid.com/SiteGen -->
+    <table class="indextable"><tbody><tr><td><a href="https://arachnoid.com/index.html">Home</a>&nbsp;|&nbsp;</td><td><a href="https://arachnoid.com/blender_graphics/index.html">Computer Graphics</a>&nbsp;|&nbsp;</td><td>
+          <script type="text/javascript" language="JavaScript">
+            function toNewPage(t) { location.href = t.options[t.selectedIndex].value; }
+          </script>
+          <select onchange="toNewPage(this)" title="Open this list to choose a page">
+            <option value="../blender_graphics/index.html">* Blender Graphics: Lenses and Optics</option>
+            <option value="../particle_box/index.html">3D Particle Box</option>
+            <option value="index.html" selected="selected">3D Photosphere Viewer</option>
+            <option value="../AI_Image_Generation/index.html">AI Image Generation</option>
+            <option value="../raytracing/index.html">Adventures in Ray Tracing</option>
+            <option value="../binocular_vision/index.html">Binocular Vision</option>
+            <option value="../python/blender_network_render/index.html">Blender Distributed Network Rendering</option>
+            <option value="../blender_make_a_planet/index.html">Blender Graphics: Make a Planet</option>
+            <option value="../Computer_Aided_Design/index.html">Computer Aided Design</option>
+            <option value="../VLC_utility/index.html">YouTube Ad Killer</option>
+          </select>
+    </td><td><a href="https://arachnoid.com/particle_box/index.html"><img src="3D%20Photosphere%20Viewer_files/leftarrow.png" border="0" alt="" title="Click for prior page"></a></td><td><a href="https://arachnoid.com/AI_Image_Generation/index.html"><img src="3D%20Photosphere%20Viewer_files/rightarrow.png" border="0" alt="" title="Click for next page"></a></td><td>&nbsp;<a href="https://arachnoid.com/administration/submit.php" title="Recommend this page to friends"><img src="3D%20Photosphere%20Viewer_files/addthis16.gif" style="border:0px;" alt="">&nbsp;&nbsp;Share This Page</a></td></tr></tbody></table>
+    <!-- SiteIndexEnd -->
+    <div align="center">
+      <div class="article_title_inverse">3D Photosphere Viewer</div>
+      <div class="article_linklist_inverse">
+        <p style="width:30%">Select and view local photospheres</p>
+        
+        
+        <p style="">— <a href="https://arachnoid.com/administration/index.html" title="Click for biography">P. Lutus</a> —
+          <a href="https://arachnoid.com/messages">
+            Message Page
+          </a>
+        —</p>
+        
+        <p style="">Copyright © 2021, <a href="https://arachnoid.com/administration/index.html" title="Click for biography">P. Lutus</a></p>
+        
+        <p>
+          Most recent update:
+          <span id="MostRecentUpdate">07.25.2022</span>
+          <script type="text/javascript" language="JavaScript">
+getMostRecentUpdate("MostRecentUpdate");
+          </script>
+        </p>
+        
+        <!-- LINK_MENU_START -->
+        <!-- Created by /usr/local/bin/html_menu_create.py -->
+        <div align="center" style="width:500px">
+          <a href="#Introduction" data-name="html-menu">Introduction</a> | <a href="#The_Viewer" data-name="html-menu">The Viewer</a>
+        </div>
+        <!-- LINK_MENU_END -->
+        <p>(double-click any word to see its definition)</p>
+        
+      </div>
+    </div>
+    
+    <div class="article_wrapper">
+      <div class="roundcorner_16_parch_content">
+        
+        <a name="Introduction" data-name="html-menu"></a><div class="article_subtopic">Introduction</div>
+        
+        <blockquote>
+          <p>I sometimes need an equirectangular photosphere viewer for 
+my own local 3D spherical images, but there are no easily acquired 
+cross-platform desktop-app viewers. It turns out that with an advanced 
+3D JavaScript library like <a href="https://pannellum.org/">Pannellum</a> available, a browser-based viewer becomes practical, not to say easy.</p>
+          
+          <p>The idea of this viewer is that you:</p>
+          
+          <ul>
+            
+            <li>Drag &amp; drop an equirectangular photosphere image into the gray frame below, or</li>
+            <li>Click the "Browse" button below to select a photosphere image from your files,</li>
+          </ul>
+          
+          <p>and the image will be displayed in this 3D viewer with navigation controls.</p>
+          
+          
+          <p>This page doesn't interact with the Internet after loading, it's just a convenient, local-image viewer.</p>
+          
+          <p><a href="https://arachnoid.com/3DViewer/pannellum/COPYING">Click here</a> to see the Pannellum author's copyright notices.</p>
+          
+        </blockquote>
+        
+        <a name="The_Viewer" data-name="html-menu"></a><div class="article_subtopic">The Viewer</div>
+        <blockquote>
+          
+          <div align="center">
+            <p><span>Drag &amp; drop or </span>
+              <input type="file" id="file-selector" style="border:none;display:none;">
+            <input type="button" value="browse" title="Browse local filesystem for a photosphere" onclick="viewer.file_selector.click();"><span> for a photosphere</span><span id="filename">:&nbsp;&nbsp;PANO_20230715_111855_2.jpg</span></p>
+            
+            
+            
+            <div id="panorama" title="Click square at upper left for full-screen, Esc to exit." class="pnlm-container" tabindex="0"><div class="pnlm-ui pnlm-grab"><div class="pnlm-dragfix"></div><span class="pnlm-about-msg"><a href="https://pannellum.org/" target="_blank">Pannellum</a> 2.5.6</span><div class="pnlm-sprite pnlm-hot-spot-debug-indicator" style="display: none;"></div><div class="pnlm-panorama-info" style="display: none;"><div class="pnlm-title-box"></div><div class="pnlm-author-box"></div></div><div class="pnlm-load-box" style="display: none;"><p>Loading...</p><div class="pnlm-lbox" style="display: block;"><div class="pnlm-loading"></div></div><div class="pnlm-lbar" style="display: none;"><div class="pnlm-lbar-fill"></div></div><p class="pnlm-lmsg"></p></div><div class="pnlm-error-msg pnlm-info-box"></div><div class="pnlm-controls-container"><div class="pnlm-zoom-controls pnlm-controls" style="display: block;"><div class="pnlm-zoom-in pnlm-sprite pnlm-control"></div><div class="pnlm-zoom-out pnlm-sprite pnlm-control"></div></div><div class="pnlm-fullscreen-toggle-button pnlm-sprite pnlm-fullscreen-toggle-button-inactive pnlm-controls pnlm-control" style="display: block;"></div></div><div class="pnlm-load-button" style="display: none;"><p>Click to<br>Load<br>Panorama</p></div><div class="pnlm-compass pnlm-controls pnlm-control" style="display: inline; transform: rotate(-54.7642deg);"></div></div><div class="pnlm-render-container"><canvas style="height: 100%; width: 100%;" width="1062" height="600"></canvas></div></div>
+          </div>
+        </blockquote>
+        
+      </div> <!-- content -->
+    </div> <!-- wrapper -->
+    <p></p>
+    <!-- SiteIndexBegin -->
+    <!-- Menus created by SiteGen, http://www.arachnoid.com/SiteGen -->
+    <table class="indextable"><tbody><tr><td><a href="https://arachnoid.com/index.html">Home</a>&nbsp;|&nbsp;</td><td><a href="https://arachnoid.com/blender_graphics/index.html">Computer Graphics</a>&nbsp;|&nbsp;</td><td>
+          <select onchange="toNewPage(this)" title="Open this list to choose a page">
+            <option value="../blender_graphics/index.html">* Blender Graphics: Lenses and Optics</option>
+            <option value="../particle_box/index.html">3D Particle Box</option>
+            <option value="index.html" selected="selected">3D Photosphere Viewer</option>
+            <option value="../AI_Image_Generation/index.html">AI Image Generation</option>
+            <option value="../raytracing/index.html">Adventures in Ray Tracing</option>
+            <option value="../binocular_vision/index.html">Binocular Vision</option>
+            <option value="../python/blender_network_render/index.html">Blender Distributed Network Rendering</option>
+            <option value="../blender_make_a_planet/index.html">Blender Graphics: Make a Planet</option>
+            <option value="../Computer_Aided_Design/index.html">Computer Aided Design</option>
+            <option value="../VLC_utility/index.html">YouTube Ad Killer</option>
+          </select>
+    </td><td><a href="https://arachnoid.com/particle_box/index.html"><img src="3D%20Photosphere%20Viewer_files/leftarrow.png" border="0" alt="" title="Click for prior page"></a></td><td><a href="https://arachnoid.com/AI_Image_Generation/index.html"><img src="3D%20Photosphere%20Viewer_files/rightarrow.png" border="0" alt="" title="Click for next page"></a></td><td>&nbsp;<a href="https://arachnoid.com/administration/submit.php" title="Recommend this page to friends"><img src="3D%20Photosphere%20Viewer_files/addthis16.gif" style="border:0px;" alt="">&nbsp;&nbsp;Share This Page</a></td></tr></tbody></table>
+    <!-- SiteIndexEnd -->
+  
+
+</body></html>
